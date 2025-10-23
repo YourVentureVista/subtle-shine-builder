@@ -42,9 +42,7 @@ export const FAQSection = () => {
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-        }
+        setIsVisible(entry.isIntersecting);
       },
       { threshold: 0.2 }
     );
@@ -57,8 +55,10 @@ export const FAQSection = () => {
   }, []);
 
   return (
-    <section ref={sectionRef} className="py-20 px-6">
-      <div className="max-w-[1200px] mx-auto">
+    <section ref={sectionRef} className="py-20 px-6 relative overflow-hidden">
+      {/* Subtle graphical element */}
+      <div className="absolute top-1/2 right-0 w-96 h-96 bg-accent/5 rounded-full blur-3xl" />
+      <div className="max-w-[1200px] mx-auto relative z-10">
         <div className="text-center mb-14">
           <h2 className="text-3xl md:text-5xl font-bold mb-4 relative inline-block">
             Frequently Asked Questions
@@ -70,11 +70,11 @@ export const FAQSection = () => {
           {faqs.map((faq, index) => (
             <div
               key={index}
-              className={`bg-muted border border-border rounded-lg overflow-hidden transition-all duration-800 hover:border-white/20 ${
+              className={`bg-muted border border-border rounded-lg overflow-hidden transition-all duration-1000 hover:border-white/20 ${
                 isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
               }`}
               style={{
-                transitionDelay: `${index * 100}ms`,
+                transitionDelay: `${index * 150}ms`,
               }}
             >
               <button

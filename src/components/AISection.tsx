@@ -7,9 +7,7 @@ export const AISection = () => {
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-        }
+        setIsVisible(entry.isIntersecting);
       },
       { threshold: 0.2 }
     );
@@ -24,10 +22,13 @@ export const AISection = () => {
   return (
     <section
       ref={sectionRef}
-      className={`py-20 px-6 bg-gradient-to-b from-card to-background relative overflow-hidden transition-all duration-1000 ${
+      className={`py-20 px-6 bg-gradient-to-b from-card to-background relative overflow-hidden transition-all duration-1200 ${
         isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
       }`}
     >
+      {/* Subtle graphical elements */}
+      <div className="absolute top-10 left-1/4 w-72 h-72 bg-accent/5 rounded-full blur-3xl" />
+      <div className="absolute bottom-10 right-1/4 w-80 h-80 bg-white/3 rounded-full blur-3xl" />
       <div className="max-w-[900px] mx-auto text-center relative z-10">
         <div className="inline-block bg-white text-black px-6 py-3 rounded-full font-bold mb-8 border-2 border-white text-sm tracking-wider">
           COMING SOON

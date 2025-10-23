@@ -24,12 +24,12 @@ export const Navigation = () => {
         isVisible ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'
       }`}
       style={{
-        backgroundColor: 'rgba(0, 0, 0, 0.98)',
-        backdropFilter: 'blur(10px)',
-        borderBottom: '1px solid rgba(255, 255, 255, 0.1)',
+        backgroundColor: 'rgba(0, 0, 0, 0.7)',
+        backdropFilter: 'blur(20px)',
+        borderBottom: '1px solid rgba(255, 255, 255, 0.08)',
       }}
     >
-      <div className="max-w-[1200px] mx-auto px-6 py-4 flex justify-between items-center">
+      <div className="max-w-[1200px] mx-auto px-6 py-3 flex justify-between items-center">
         <a href="#home" className="flex items-center gap-3">
           <img
             src="/assets/logo-full.png"

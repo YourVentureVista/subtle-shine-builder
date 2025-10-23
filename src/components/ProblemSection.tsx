@@ -7,9 +7,7 @@ export const ProblemSection = () => {
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-        }
+        setIsVisible(entry.isIntersecting);
       },
       { threshold: 0.2 }
     );
@@ -24,11 +22,13 @@ export const ProblemSection = () => {
   return (
     <section
       ref={sectionRef}
-      className={`py-20 px-6 bg-card transition-all duration-1000 ${
+      className={`py-20 px-6 bg-card transition-all duration-1200 relative overflow-hidden ${
         isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
       }`}
     >
-      <div className="max-w-[1200px] mx-auto">
+      {/* Subtle graphical element */}
+      <div className="absolute top-20 right-10 w-64 h-64 bg-accent/5 rounded-full blur-3xl" />
+      <div className="max-w-[1200px] mx-auto relative z-10">
         <div className="text-center mb-14">
           <h2 className="text-3xl md:text-5xl font-bold mb-4 relative inline-block">
             You've Built Something Worth Scaling
@@ -65,7 +65,7 @@ export const ProblemSection = () => {
             <strong>Strategic clarity is a competitive advantage.</strong>{' '}
             <span className="relative inline-block">
               <span className="relative z-10">Let's build it together.</span>
-              <span className="absolute bottom-1 left-0 right-0 h-2 bg-accent -z-10" />
+              <span className="absolute -bottom-0.5 left-0 right-0 h-2 bg-accent -z-10" />
             </span>
           </p>
         </div>

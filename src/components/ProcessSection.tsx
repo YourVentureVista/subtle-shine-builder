@@ -28,9 +28,7 @@ export const ProcessSection = () => {
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-        }
+        setIsVisible(entry.isIntersecting);
       },
       { threshold: 0.2 }
     );
@@ -43,8 +41,10 @@ export const ProcessSection = () => {
   }, []);
 
   return (
-    <section ref={sectionRef} className="py-20 px-6 bg-card">
-      <div className="max-w-[1200px] mx-auto">
+    <section ref={sectionRef} className="py-20 px-6 bg-card relative overflow-hidden">
+      {/* Subtle graphical elements */}
+      <div className="absolute bottom-20 left-10 w-96 h-96 bg-white/5 rounded-full blur-3xl" />
+      <div className="max-w-[1200px] mx-auto relative z-10">
         <div className="text-center mb-14">
           <h2 className="text-3xl md:text-5xl font-bold mb-4 relative inline-block">
             How It Works
@@ -59,11 +59,11 @@ export const ProcessSection = () => {
           {steps.map((step, index) => (
             <div
               key={step.number}
-              className={`text-center transition-all duration-800 ${
+              className={`text-center transition-all duration-1000 ${
                 isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
               }`}
               style={{
-                transitionDelay: `${index * 200}ms`,
+                transitionDelay: `${index * 250}ms`,
               }}
             >
               <div className="w-16 h-16 bg-white text-black rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-6">
@@ -76,10 +76,10 @@ export const ProcessSection = () => {
         </div>
 
         <div
-          className={`text-center mt-12 p-6 bg-muted rounded-lg border border-border transition-all duration-800 ${
+          className={`text-center mt-12 p-6 bg-muted rounded-lg border border-border transition-all duration-1000 ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
           }`}
-          style={{ transitionDelay: '600ms' }}
+          style={{ transitionDelay: '750ms' }}
         >
           <p className="text-xl font-semibold">
             <strong>Timeline:</strong> First call to decision-ready analysis in 48-72 hours

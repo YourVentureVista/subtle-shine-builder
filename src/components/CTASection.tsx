@@ -8,9 +8,7 @@ export const CTASection = () => {
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-        }
+        setIsVisible(entry.isIntersecting);
       },
       { threshold: 0.2 }
     );
@@ -31,19 +29,19 @@ export const CTASection = () => {
     <section
       ref={sectionRef}
       id="contact"
-      className={`py-20 px-6 bg-card text-center transition-all duration-1000 ${
+      className={`py-20 px-6 bg-accent text-center transition-all duration-1200 ${
         isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
       }`}
     >
       <div className="max-w-[1200px] mx-auto">
-        <h2 className="text-3xl md:text-5xl font-bold mb-6">Ready to Build Your Strategic Advantage?</h2>
-        <p className="text-xl text-muted-foreground mb-10 max-w-2xl mx-auto">
+        <h2 className="text-3xl md:text-5xl font-bold mb-6 text-background">Ready to Build Your Strategic Advantage?</h2>
+        <p className="text-xl text-background/80 mb-10 max-w-2xl mx-auto">
           Let's turn uncertainty into confidence. Book your free discovery call.
         </p>
         <Button
           onClick={scrollToContact}
           size="lg"
-          className="bg-white text-black hover:bg-transparent hover:text-white border-2 border-white font-bold text-lg px-8 py-6 transition-all duration-300 hover:scale-105"
+          className="bg-background text-foreground hover:bg-background/90 border-2 border-background font-bold text-lg px-8 py-6 transition-all duration-300 hover:scale-105"
         >
           Book Your Strategy Call
         </Button>

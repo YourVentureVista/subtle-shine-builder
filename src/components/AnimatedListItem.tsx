@@ -15,9 +15,7 @@ export const AnimatedListItem = ({ icon: Icon, title, description, index }: Anim
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-        }
+        setIsVisible(entry.isIntersecting);
       },
       { threshold: 0.3 }
     );
@@ -32,11 +30,11 @@ export const AnimatedListItem = ({ icon: Icon, title, description, index }: Anim
   return (
     <div
       ref={itemRef}
-      className={`py-10 border-b border-border last:border-b-0 transition-all duration-800 ${
+      className={`py-10 border-b border-border last:border-b-0 transition-all duration-1000 ${
         isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
       }`}
       style={{
-        transitionDelay: `${index * 150}ms`,
+        transitionDelay: `${index * 200}ms`,
       }}
     >
       <div className="flex items-start gap-6 mb-4">
