@@ -39,19 +39,33 @@ const Index = () => {
       <Navigation />
       <Hero />
       <SectionDivider />
+            <div className="bg-background">
       <ProblemSection />
+                    </div>
       <SectionDivider />
+            <div className="bg-gradient-to-br from-primary/5 to-background">
       <WhatWeDoSection />
+                    </div>
       <SectionDivider />
-      <DualLensSection />
+            <div className="bg-background">
+        <DualLensSection />
+      </div>
       <SectionDivider />
-      <ProcessSection />
+      <div className="bg-gradient-to-br from-primary/5 to-background">
+        <ProcessSection />
+      </div>
       <SectionDivider />
-      <AISection />
+      <div className="bg-background">
+        <AISection />
+      </div>
       <SectionDivider />
-      <FAQSection />
+      <div className="bg-gradient-to-br from-primary/5 to-background">
+        <FAQSection />
+      </div>
       <SectionDivider />
-      <CTASection />
+      <div className="bg-background"
+                <CTASection />
+      </div>>
       <Footer />
       <ScrollToTop />
     </div>
